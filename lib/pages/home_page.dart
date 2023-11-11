@@ -15,8 +15,8 @@ class _HomePageState extends State<HomePage> {
       child: Scaffold(
         appBar: AppBar(
           title: Text(
-            "Mis Recetas",
-            style: GoogleFonts.arima(
+            "Mis Recetasss",
+            style: GoogleFonts.roboto(
               fontSize: 35,
               color: Colors.red,
               fontWeight: FontWeight.bold,
@@ -51,6 +51,7 @@ class _HomePageState extends State<HomePage> {
 
                     // ESTILO MÁS GENERICO
                     label: Text("Nombre"),
+                    labelStyle: GoogleFonts.arima(),
                     icon: SvgPicture.asset(
                       "assets/icons-svg/user-check.svg",
                       colorFilter: const ColorFilter.mode(
