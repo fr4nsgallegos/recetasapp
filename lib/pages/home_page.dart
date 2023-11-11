@@ -20,35 +20,60 @@ class _HomePageState extends State<HomePage> {
           child: SingleChildScrollView(
             child: Column(
               children: [
+                SizedBox(
+                  height: 100,
+                ),
                 TextField(
-                  // focusNode: FocusNode(),
+                  //PROPIEDADES DEL CURSOS
+                  cursorColor: Colors.black,
+                  cursorHeight: 10,
+                  cursorWidth: 10,
+                  cursorRadius: Radius.circular(50),
+                  // showCursor: false,//HABILITA O DESHABILITA EL CURSOS
                   // enabled: false, //deshabilita el text field
                   decoration: InputDecoration(
+                    helperText: "hola mundo ",
+                    helperStyle:
+                        TextStyle(color: Colors.blueGrey, fontSize: 20),
+                    hoverColor: Colors.yellow,
+                    contentPadding: EdgeInsets.all(0),
                     hintText: "Ingrese el nombre de la institución",
+                    hintStyle: TextStyle(color: Colors.pink, fontSize: 15),
+                    hintMaxLines: 2,
 
                     // ESTILO MÁS GENERICO
                     label: Text("Nombre"),
-                    icon: SvgPicture.asset("assets/icons-svg/user-check.svg"),
+                    icon: SvgPicture.asset(
+                      "assets/icons-svg/user-check.svg",
+                      colorFilter: const ColorFilter.mode(
+                        Color(0xffFF6C37),
+                        BlendMode.srcIn,
+                      ),
+                    ),
                     prefixIcon: Icon(Icons.share),
                     suffix: Icon(Icons.abc),
                     filled: true,
-                    fillColor: Color.fromARGB(255, 255, 23, 2),
+                    fillColor: Colors.orange,
+                    // focusColor: Colors.amber,
 
                     //EL ESTILO QUE TOMA AL INICIO SIN QUE SE SELECCIONE EL TEXTFIELD
                     enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Colors.orange,
-                        width: 5,
-                      ),
+                      // borderSide: BorderSide(
+                      //   color: Colors.orange,
+                      //   width: 5,
+                      //   style: BorderStyle.solid,
+                      // ),
+                      borderSide: BorderSide.none,
                       borderRadius: BorderRadius.circular(50),
                     ),
                     //ESTILO QUE TOMA CUANDO SELECCIONO EL TEXTFIELD
                     focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: Colors.black,
-                        width: 10,
-                      ),
-                      borderRadius: BorderRadius.circular(10),
+                      // borderSide: BorderSide(
+                      //   color: Colors.black,
+                      //   width: 10,
+                      // ),
+                      borderSide: BorderSide.none,
+                      borderRadius: BorderRadius.circular(50),
                     ),
                   ),
                 ),
