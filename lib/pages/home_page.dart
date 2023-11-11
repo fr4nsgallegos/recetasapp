@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -27,7 +28,7 @@ class _HomePageState extends State<HomePage> {
 
                     // ESTILO MÁS GENERICO
                     label: Text("Nombre"),
-                    icon: Icon(Icons.people),
+                    icon: SvgPicture.asset("assets/icons-svg/user-check.svg"),
                     prefixIcon: Icon(Icons.share),
                     suffix: Icon(Icons.abc),
                     filled: true,
