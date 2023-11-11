@@ -20,16 +20,18 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               children: [
                 TextField(
+                  // focusNode: FocusNode(),
+                  // enabled: false, //deshabilita el text field
                   decoration: InputDecoration(
                     hintText: "Ingrese el nombre de la institución",
 
-                    //ESTILO MÁS GENERICO
-                    // label: Text("Nombre"),
-                    // icon: Icon(Icons.people),
-                    // prefixIcon: Icon(Icons.share),
-                    // suffix: Icon(Icons.abc),
-                    // filled: true,
-                    // fillColor: Color.fromARGB(255, 255, 23, 2),
+                    // ESTILO MÁS GENERICO
+                    label: Text("Nombre"),
+                    icon: Icon(Icons.people),
+                    prefixIcon: Icon(Icons.share),
+                    suffix: Icon(Icons.abc),
+                    filled: true,
+                    fillColor: Color.fromARGB(255, 255, 23, 2),
 
                     //EL ESTILO QUE TOMA AL INICIO SIN QUE SE SELECCIONE EL TEXTFIELD
                     enabledBorder: OutlineInputBorder(
@@ -53,6 +55,7 @@ class _HomePageState extends State<HomePage> {
                   height: 50,
                 ),
                 TextField(
+                  // enabled: false,//deshabilita el text field
                   decoration: InputDecoration(
                     hintText: "Ingrese la dirección de la institución",
                     label: Text("Dirección"),
