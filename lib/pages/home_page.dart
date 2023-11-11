@@ -8,7 +8,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int notas = 0;
+  TextEditingController nombreController = TextEditingController();
+  TextEditingController direccionController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -32,6 +34,11 @@ class _HomePageState extends State<HomePage> {
                   height: 100,
                 ),
                 TextField(
+                  controller: nombreController,
+                  // onChanged: (String value) {
+                  //   print(nombreController.text);
+                  // },
+
                   //PROPIEDADES DEL CURSOS
                   cursorColor: Colors.black,
                   cursorHeight: 10,
@@ -90,6 +97,7 @@ class _HomePageState extends State<HomePage> {
                   height: 50,
                 ),
                 TextField(
+                  controller: direccionController,
                   // enabled: false,//deshabilita el text field
                   decoration: InputDecoration(
                     hintText: "Ingrese la dirección de la institución",
@@ -99,6 +107,15 @@ class _HomePageState extends State<HomePage> {
                     fillColor: Colors.yellow,
                   ),
                 ),
+                SizedBox(
+                  height: 20,
+                ),
+                ElevatedButton(
+                    onPressed: () {
+                      print(direccionController.text);
+                      print(nombreController.text);
+                    },
+                    child: Text("PRINTEAR"))
               ],
             ),
           ),
