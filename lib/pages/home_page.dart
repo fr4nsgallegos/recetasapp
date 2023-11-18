@@ -147,7 +147,7 @@ class _HomePageState extends State<HomePage> {
                   child: ListView.builder(
                     itemCount: recipes.length,
                     itemBuilder: (BuildContext context, int index) {
-                      return GestureDetector(
+                      return InkWell(
                         onTap: () {
                           Navigator.push(
                             context,
