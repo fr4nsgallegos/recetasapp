@@ -13,6 +13,22 @@ class _HomePageState extends State<HomePage> {
   TextEditingController urlImageController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
 
+  List<Map<String, dynamic>> recipes = [
+    {
+      "title": "Bandeja Paisa",
+      "imageUrl":
+          "https://ichef.bbci.co.uk/news/640/cpsprodpb/134E3/production/_105057097_a226d870-cc5f-4043-9f4b-d452b75cc280.jpg",
+      "description":
+          "La bandeja paisa es uno de los platos más representativos de Colombia y la insignia de la gastronomía antioqueña, y es propio de esta región, Antioquia.Una de las características fundamentales de este plato es su abundancia, tanto en cantidad como en variedad de alimentos, de tal modo que la bandeja paisa completa solo cabe servirla en platos grandes llamados bandejas.",
+    },
+    {
+      "title": "Lomo Saltado",
+      "imageUrl":
+          "https://previews.123rf.com/images/lenyvavsha/lenyvavsha1511/lenyvavsha151100492/48709327-la-cocina-peruana-hecha-en-casa-lomo-saltado-en-una-sartén-vertical-del-primer.jpg",
+      "description":
+          "El lomo saltado es un plato sumamente popular de la llamada cocina fusión que combina la tradición de la gastronomía china de saltear los alimentos con ingredientes peruanos como ají amarillo, cilantro y tomate. Este suculento plato fuerte siempre se acompaña con arroz blanco y papas fritas.",
+    }
+  ];
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -104,19 +120,24 @@ class _HomePageState extends State<HomePage> {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      print(titleController.text);
-                      print(descriptionController.text);
-                      print(urlImageController.text);
+                      recipes.add({
+                        "title": titleController.text,
+                        "imageUrl": urlImageController.text,
+                        "description": descriptionController.text,
+                      });
+                      setState(() {});
                     },
                     child: Text("Agregar"),
                   ),
-                  RecipeItem(
-                    title: "Bandeja Paisa",
-                    imageUrl:
-                        "https://ichef.bbci.co.uk/news/640/cpsprodpb/134E3/production/_105057097_a226d870-cc5f-4043-9f4b-d452b75cc280.jpg",
-                    description:
-                        "La bandeja paisa es uno de los platos más representativos de Colombia y la insignia de la gastronomía antioqueña, y es propio de esta región, Antioquia.Una de las características fundamentales de este plato es su abundancia, tanto en cantidad como en variedad de alimentos, de tal modo que la bandeja paisa completa solo cabe servirla en platos grandes llamados bandejas.",
-                  ),
+                  ...recipes
+                      .map(
+                        (receta) => RecipeItem(
+                          title: receta["title"],
+                          description: receta["description"],
+                          imageUrl: receta["imageUrl"],
+                        ),
+                      )
+                      .toList(),
                 ],
               ),
             ),
