@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:recetasapp/models/recipe_model.dart';
+import 'package:recetasapp/pages/recipe_page.dart';
 import 'package:recetasapp/widgets/card_1.dart';
 
 class HomePage extends StatefulWidget {
@@ -146,8 +147,20 @@ class _HomePageState extends State<HomePage> {
                   child: ListView.builder(
                     itemCount: recipes.length,
                     itemBuilder: (BuildContext context, int index) {
-                      return Card1(
-                        recipeModel: recipes[index],
+                      return GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => RecipePage(
+                                title: recipes[index].title,
+                              ),
+                            ),
+                          );
+                        },
+                        child: Card1(
+                          recipeModel: recipes[index],
+                        ),
                       );
                     },
                   ),

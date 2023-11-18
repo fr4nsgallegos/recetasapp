@@ -6,7 +6,7 @@ import 'package:recetasapp/pages/recipe_page.dart';
 void main() {
   runApp(
     MaterialApp(
-      home: RecipePage(),
+      home: HomePage(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         textTheme: GoogleFonts.arimaTextTheme(),
