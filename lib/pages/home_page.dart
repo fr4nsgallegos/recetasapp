@@ -107,7 +107,7 @@ class _HomePageState extends State<HomePage> {
                       print(descriptionController.text);
                       print(urlImageController.text);
                     },
-                    child: Text("PRINTEAR"),
+                    child: Text("Agregar"),
                   ),
                   RecipeItem(),
                   RecipeItem(),
@@ -122,12 +122,7 @@ class _HomePageState extends State<HomePage> {
 }
 
 //este es más eficaz
-class RecipeItem extends StatefulWidget {
-  @override
-  State<RecipeItem> createState() => _RecipeItemState();
-}
-
-class _RecipeItemState extends State<RecipeItem> {
+class RecipeItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -177,69 +172,8 @@ class _RecipeItemState extends State<RecipeItem> {
               style: TextStyle(fontSize: 14),
             ),
           ),
-          ElevatedButton(
-            onPressed: () {
-              //propiedad solo de STATEFULLWIDGET (SETSTATE)
-              setState(() {});
-            },
-            child: Text("boton"),
-          )
         ],
       ),
     );
   }
-}
-
-//es una función
-Widget recipeItem() {
-  return Container(
-    margin: EdgeInsets.symmetric(vertical: 8),
-    padding: EdgeInsets.all(16),
-    // color: Colors.red,
-    decoration: BoxDecoration(
-      color: Colors.grey.shade200,
-      borderRadius: BorderRadius.circular(18),
-      boxShadow: [
-        BoxShadow(
-          color: Colors.black.withOpacity(0.5),
-          offset: Offset(5, 5),
-          blurRadius: 8,
-        ),
-      ],
-    ),
-    child: Column(
-      children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(18),
-          child: Image.network(
-            "https://ichef.bbci.co.uk/news/640/cpsprodpb/134E3/production/_105057097_a226d870-cc5f-4043-9f4b-d452b75cc280.jpg",
-            height: 240,
-            width: double.infinity,
-            fit: BoxFit.cover,
-          ),
-        ),
-        SizedBox(
-          height: 8,
-        ),
-        Text(
-          "Bandeja paisa",
-          maxLines: 2,
-          style: TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Text(
-            "La bandeja paisa es uno de los platos más representativos de Colombia y la insignia de la gastronomía antioqueña, y es propio de esta región, Antioquia.Una de las características fundamentales de este plato es su abundancia, tanto en cantidad como en variedad de alimentos, de tal modo que la bandeja paisa completa solo cabe servirla en platos grandes llamados bandejas.",
-            maxLines: 3,
-            textAlign: TextAlign.left,
-            overflow: TextOverflow.ellipsis,
-            style: TextStyle(fontSize: 14),
-          ),
-        )
-      ],
-    ),
-  );
 }
