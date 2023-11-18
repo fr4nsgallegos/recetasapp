@@ -136,7 +136,9 @@ class _HomePageState extends State<HomePage> {
                         image: urlImageController.text,
                       );
                       recipes.add(_recipe);
-
+                      titleController.clear();
+                      descriptionController.clear();
+                      urlImageController.clear();
                       setState(() {});
                     },
                     child: Text("Agregar"),
