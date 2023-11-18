@@ -109,8 +109,13 @@ class _HomePageState extends State<HomePage> {
                     },
                     child: Text("Agregar"),
                   ),
-                  RecipeItem(),
-                  RecipeItem(),
+                  RecipeItem(
+                    title: "Bandeja Paisa",
+                    imageUrl:
+                        "https://ichef.bbci.co.uk/news/640/cpsprodpb/134E3/production/_105057097_a226d870-cc5f-4043-9f4b-d452b75cc280.jpg",
+                    description:
+                        "La bandeja paisa es uno de los platos más representativos de Colombia y la insignia de la gastronomía antioqueña, y es propio de esta región, Antioquia.Una de las características fundamentales de este plato es su abundancia, tanto en cantidad como en variedad de alimentos, de tal modo que la bandeja paisa completa solo cabe servirla en platos grandes llamados bandejas.",
+                  ),
                 ],
               ),
             ),
@@ -123,6 +128,15 @@ class _HomePageState extends State<HomePage> {
 
 //este es más eficaz
 class RecipeItem extends StatelessWidget {
+  String title;
+  String description;
+  String imageUrl;
+  RecipeItem({
+    required this.title,
+    required this.description,
+    required this.imageUrl,
+  });
+
   @override
   Widget build(BuildContext context) {
     return Container(
