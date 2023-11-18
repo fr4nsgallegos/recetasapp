@@ -5,7 +5,7 @@ import 'package:recetasapp/pages/home_page.dart';
 void main() {
   runApp(
     MaterialApp(
-      home: Prueba(),
+      home: HomePage(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         textTheme: GoogleFonts.arimaTextTheme(),
@@ -14,7 +14,7 @@ void main() {
   );
 }
 
-class Prueba extends StatelessWidget {
+class PruebaScroll extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -25,15 +25,21 @@ class Prueba extends StatelessWidget {
         body: Column(
           children: [
             Text("LOS CONTAINERS SON: "),
+            Text("LOS CONTAINERS SON: "),
+            Text("LOS CONTAINERS SON: "),
+            Text("LOS CONTAINERS SON: "),
+            Text("LOS CONTAINERS SON: "),
+            Text("LOS CONTAINERS SON: "),
             SizedBox(
-              height: 300,
+              height: MediaQuery.of(context).size.height / 2,
+              // width: double.infinity,
               child: ListView.builder(
                 //SCROLL EN HORIZONTAL
                 // scrollDirection: Axis.horizontal,
                 itemCount: 10,
                 itemBuilder: (BuildContext context, int index) {
                   return Container(
-                    margin: EdgeInsets.all(8),
+                    margin: EdgeInsets.symmetric(vertical: 8),
                     height: 200,
                     width: 200,
                     color: Colors.red,
