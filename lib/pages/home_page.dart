@@ -28,14 +28,14 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     recipes = [
-      // bandejaPaisa,
+      bandejaPaisa,
       RecipeModel(
         title: "Lomo Saltado",
         description:
             "El lomo saltado es un plato sumamente popular de la llamada cocina fusión que combina la tradición de la gastronomía china de saltear los alimentos con ingredientes peruanos como ají amarillo, cilantro y tomate. Este suculento plato fuerte siempre se acompaña con arroz blanco y papas fritas.",
         image:
             "https://previews.123rf.com/images/lenyvavsha/lenyvavsha1511/lenyvavsha151100492/48709327-la-cocina-peruana-hecha-en-casa-lomo-saltado-en-una-sartén-vertical-del-primer.jpg",
-      )
+      ),
     ];
   }
 
@@ -130,14 +130,14 @@ class _HomePageState extends State<HomePage> {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      // Map<String, dynamic> recipe = {
-                      //   "titulo": titleController.text,
-                      //   "imageUrl": urlImageController.text,
-                      //   "description": descriptionController.text,
-                      // };
-                      // recipes.add(recipe);
+                      RecipeModel _recipe = RecipeModel(
+                        title: titleController.text,
+                        description: descriptionController.text,
+                        image: urlImageController.text,
+                      );
+                      recipes.add(_recipe);
 
-                      // setState(() {});
+                      setState(() {});
                     },
                     child: Text("Agregar"),
                   ),
