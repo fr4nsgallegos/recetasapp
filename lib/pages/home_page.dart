@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:recetasapp/widgets/recipe_item.dart';
+import 'package:recetasapp/models/recipe_model.dart';
+import 'package:recetasapp/widgets/card_1.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -13,22 +14,31 @@ class _HomePageState extends State<HomePage> {
   TextEditingController urlImageController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
 
-  List<Map<String, dynamic>> recipes = [
-    {
-      "title": "Bandeja Paisa",
-      "imageUrl":
-          "https://ichef.bbci.co.uk/news/640/cpsprodpb/134E3/production/_105057097_a226d870-cc5f-4043-9f4b-d452b75cc280.jpg",
-      "description":
-          "La bandeja paisa es uno de los platos más representativos de Colombia y la insignia de la gastronomía antioqueña, y es propio de esta región, Antioquia.Una de las características fundamentales de este plato es su abundancia, tanto en cantidad como en variedad de alimentos, de tal modo que la bandeja paisa completa solo cabe servirla en platos grandes llamados bandejas.",
-    },
-    {
-      "title": "Lomo Saltado",
-      "imageUrl":
-          "https://previews.123rf.com/images/lenyvavsha/lenyvavsha1511/lenyvavsha151100492/48709327-la-cocina-peruana-hecha-en-casa-lomo-saltado-en-una-sartén-vertical-del-primer.jpg",
-      "description":
-          "El lomo saltado es un plato sumamente popular de la llamada cocina fusión que combina la tradición de la gastronomía china de saltear los alimentos con ingredientes peruanos como ají amarillo, cilantro y tomate. Este suculento plato fuerte siempre se acompaña con arroz blanco y papas fritas.",
-    }
-  ];
+  RecipeModel bandejaPaisa = RecipeModel(
+    title: "Bandeja Paisa",
+    description:
+        "La bandeja paisa es uno de los platos más representativos de Colombia y la insignia de la gastronomía antioqueña, y es propio de esta región, Antioquia.Una de las características fundamentales de este plato es su abundancia, tanto en cantidad como en variedad de alimentos, de tal modo que la bandeja paisa completa solo cabe servirla en platos grandes llamados bandejas.",
+    image:
+        "https://ichef.bbci.co.uk/news/640/cpsprodpb/134E3/production/_105057097_a226d870-cc5f-4043-9f4b-d452b75cc280.jpg",
+  );
+
+  List<RecipeModel> recipes = [];
+
+  @override
+  void initState() {
+    super.initState();
+    recipes = [
+      // bandejaPaisa,
+      RecipeModel(
+        title: "Lomo Saltado",
+        description:
+            "El lomo saltado es un plato sumamente popular de la llamada cocina fusión que combina la tradición de la gastronomía china de saltear los alimentos con ingredientes peruanos como ají amarillo, cilantro y tomate. Este suculento plato fuerte siempre se acompaña con arroz blanco y papas fritas.",
+        image:
+            "https://previews.123rf.com/images/lenyvavsha/lenyvavsha1511/lenyvavsha151100492/48709327-la-cocina-peruana-hecha-en-casa-lomo-saltado-en-una-sartén-vertical-del-primer.jpg",
+      )
+    ];
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -120,21 +130,21 @@ class _HomePageState extends State<HomePage> {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      recipes.add({
-                        "title": titleController.text,
-                        "imageUrl": urlImageController.text,
-                        "description": descriptionController.text,
-                      });
-                      setState(() {});
+                      // Map<String, dynamic> recipe = {
+                      //   "titulo": titleController.text,
+                      //   "imageUrl": urlImageController.text,
+                      //   "description": descriptionController.text,
+                      // };
+                      // recipes.add(recipe);
+
+                      // setState(() {});
                     },
                     child: Text("Agregar"),
                   ),
                   ...recipes
                       .map(
-                        (receta) => RecipeItem(
-                          title: receta["title"],
-                          description: receta["description"],
-                          imageUrl: receta["imageUrl"],
+                        (RecipeModel receta) => Card1(
+                          recipeModel: receta,
                         ),
                       )
                       .toList(),
