@@ -8,8 +8,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  TextEditingController nombreController = TextEditingController();
-  TextEditingController direccionController = TextEditingController();
+  TextEditingController titleController = TextEditingController();
+  TextEditingController urlImageController = TextEditingController();
+  TextEditingController descriptionController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -17,106 +18,98 @@ class _HomePageState extends State<HomePage> {
       child: Scaffold(
         appBar: AppBar(
           title: Text(
-            "Mis Recetasss",
-            style: GoogleFonts.roboto(
-              fontSize: 35,
-              color: Colors.red,
-              fontWeight: FontWeight.bold,
-            ),
+            "Mis Recetas",
+            style: GoogleFonts.roboto(),
           ),
         ),
         body: Padding(
           padding: EdgeInsets.all(8),
           child: SingleChildScrollView(
-            child: Column(
-              children: [
-                SizedBox(
-                  height: 100,
-                ),
-                TextField(
-                  controller: nombreController,
-                  // onChanged: (String value) {
-                  //   print(nombreController.text);
-                  // },
-
-                  //PROPIEDADES DEL CURSOS
-                  cursorColor: Colors.black,
-                  cursorHeight: 10,
-                  cursorWidth: 10,
-                  cursorRadius: Radius.circular(50),
-                  // showCursor: false,//HABILITA O DESHABILITA EL CURSOS
-                  // enabled: false, //deshabilita el text field
-                  decoration: InputDecoration(
-                    helperText: "hola mundo ",
-                    helperStyle:
-                        TextStyle(color: Colors.blueGrey, fontSize: 20),
-                    hoverColor: Colors.yellow,
-                    contentPadding: EdgeInsets.all(0),
-                    hintText: "Ingrese el nombre de la institución",
-                    hintStyle: TextStyle(color: Colors.pink, fontSize: 15),
-                    hintMaxLines: 2,
-
-                    // ESTILO MÁS GENERICO
-                    label: Text("Nombre"),
-                    labelStyle: GoogleFonts.arima(),
-                    icon: SvgPicture.asset(
-                      "assets/icons-svg/user-check.svg",
-                      colorFilter: const ColorFilter.mode(
-                        Color(0xffFF6C37),
-                        BlendMode.srcIn,
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                children: [
+                  TextField(
+                    style: TextStyle(color: Colors.blueGrey),
+                    controller: titleController,
+                    decoration: InputDecoration(
+                      hoverColor: Colors.yellow,
+                      contentPadding: EdgeInsets.all(0),
+                      hintText: "Ingrese el nombre de la receta",
+                      focusColor: Colors.amber,
+                      prefixIcon: Icon(Icons.title),
+                      filled: true,
+                      fillColor: Colors.grey.shade300,
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide.none,
+                        borderRadius: BorderRadius.circular(50),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide.none,
+                        borderRadius: BorderRadius.circular(50),
                       ),
                     ),
-                    prefixIcon: Icon(Icons.share),
-                    suffix: Icon(Icons.abc),
-                    filled: true,
-                    fillColor: Colors.orange,
-                    // focusColor: Colors.amber,
-
-                    //EL ESTILO QUE TOMA AL INICIO SIN QUE SE SELECCIONE EL TEXTFIELD
-                    enabledBorder: OutlineInputBorder(
-                      // borderSide: BorderSide(
-                      //   color: Colors.orange,
-                      //   width: 5,
-                      //   style: BorderStyle.solid,
-                      // ),
-                      borderSide: BorderSide.none,
-                      borderRadius: BorderRadius.circular(50),
-                    ),
-                    //ESTILO QUE TOMA CUANDO SELECCIONO EL TEXTFIELD
-                    focusedBorder: OutlineInputBorder(
-                      // borderSide: BorderSide(
-                      //   color: Colors.black,
-                      //   width: 10,
-                      // ),
-                      borderSide: BorderSide.none,
-                      borderRadius: BorderRadius.circular(50),
+                  ),
+                  SizedBox(
+                    height: 16,
+                  ),
+                  TextField(
+                    style: TextStyle(color: Colors.blueGrey),
+                    controller: descriptionController,
+                    decoration: InputDecoration(
+                      hoverColor: Colors.yellow,
+                      contentPadding: EdgeInsets.all(0),
+                      hintText: "Ingrese la descripción de la receta",
+                      focusColor: Colors.amber,
+                      prefixIcon: Icon(Icons.description),
+                      filled: true,
+                      fillColor: Colors.grey.shade300,
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide.none,
+                        borderRadius: BorderRadius.circular(50),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide.none,
+                        borderRadius: BorderRadius.circular(50),
+                      ),
                     ),
                   ),
-                ),
-                SizedBox(
-                  height: 50,
-                ),
-                TextField(
-                  controller: direccionController,
-                  // enabled: false,//deshabilita el text field
-                  decoration: InputDecoration(
-                    hintText: "Ingrese la dirección de la institución",
-                    label: Text("Dirección"),
-                    icon: Icon(Icons.map),
-                    filled: true,
-                    fillColor: Colors.yellow,
+                  SizedBox(
+                    height: 16,
                   ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                ElevatedButton(
-                    onPressed: () {
-                      print(direccionController.text);
-                      print(nombreController.text);
-                    },
-                    child: Text("PRINTEAR"))
-              ],
+                  TextField(
+                    style: TextStyle(color: Colors.blueGrey),
+                    controller: urlImageController,
+                    decoration: InputDecoration(
+                      hoverColor: Colors.yellow,
+                      contentPadding: EdgeInsets.all(0),
+                      hintText: "Ingrese el url de la imagen",
+                      focusColor: Colors.amber,
+                      prefixIcon: Icon(Icons.image),
+                      filled: true,
+                      fillColor: Colors.grey.shade300,
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide.none,
+                        borderRadius: BorderRadius.circular(50),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide.none,
+                        borderRadius: BorderRadius.circular(50),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 8,
+                  ),
+                  ElevatedButton(
+                      onPressed: () {
+                        print(titleController.text);
+                        print(descriptionController.text);
+                        print(urlImageController.text);
+                      },
+                      child: Text("PRINTEAR"))
+                ],
+              ),
             ),
           ),
         ),
